@@ -1,0 +1,34 @@
+paths:
+  pdf_dir: "data/raw_pdfs"
+  chunk_file: "data/chunks.parquet"
+  chroma_dir: "index/chroma"
+
+chunking:
+  min_tokens: 300
+  max_tokens: 700
+  overlap: 0.15
+
+embedding:
+  model: "BAAI/bge-m3"
+  normalize: true
+
+retrieval:
+  topk_initial: 12
+  topk_rerank: 4
+  hybrid_weight_dense: 0.6
+
+generation:
+  provider: "local-llama"
+  llama_model: "meta-llama/Meta-Llama-3-8B-Instruct"
+  max_context_chars: 6000
+  max_new_tokens: 200
+  summarize_context: false
+  summary_chars: 3500
+
+reranker:
+  model: "BAAI/bge-reranker-large"
+
+
+
+ui:
+  enable_summary_button: true
